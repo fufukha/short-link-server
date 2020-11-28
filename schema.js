@@ -5,6 +5,7 @@ const typeDefs = gql`
     id: Int!
     name: String!
     url: String!
+    slug: String
   }
 
   type Query {
@@ -13,7 +14,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    createLink(name: String!, url: String!): Link!
+    createLink(name: String, url: String!): Link!
   }
 `;
 

@@ -1,3 +1,5 @@
+const btoa = require("btoa");
+
 const resolvers = {
   Query: {
     async getLinks(root, args, { models }) {
@@ -11,7 +13,8 @@ const resolvers = {
     async createLink(root, { name, url }, { models }) {
       return models.Link.create({
         name,
-        url
+        url,
+        slug: btoa(url).slice(0, 10)
       });
     }
   }
