@@ -10,11 +10,11 @@ const resolvers = {
     }
   },
   Mutation: {
-    async createLink(root, { name, url }, { models }) {
+    async createLink(root, { name, url, slug }, { models }) {
       return models.Link.create({
         name,
         url,
-        slug: btoa(url).slice(0, 10)
+        slug: slug || btoa(url).slice(0, 10)
       });
     }
   }
